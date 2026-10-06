@@ -12,6 +12,7 @@ Build streaks, stay motivated with daily quotes, and watch your progress grow.
 - Track 4 sports: Table Tennis, Jogging, Running, Swimming
 - Daily streak system
 - Motivational quote that changes every day
+- **Dark Mode & Light Mode** (with memory)
 - Simple activity history
 - Clean and modern dark design
 - Fully responsive (works great on phone and computer)
@@ -39,9 +40,10 @@ SportStreak/
 
 1. Open the website
 2. Read the daily motivation quote
-3. Click on any sport
-4. Press **“I did it today!”** after completing the activity
-5. Watch your streak grow
+3. 3. Click the 🌙 / ☀️ button to switch between Dark and Light mode
+4. Click on any sport
+5. Press **“I did it today!”** after completing the activity
+6. Watch your streak grow
 
 Your progress is automatically saved in your browser.
 
