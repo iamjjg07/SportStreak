@@ -28,10 +28,8 @@ Track your daily activity, build streaks, plan your week, and export to Google C
 
 ---
 
-## Live Demo
-
 After uploading to GitHub Pages:  
-`https://iamjjg07.github.io/SportStreak`
+[https://iamjjg07.github.io/SportStreak]
 
 ---
 
