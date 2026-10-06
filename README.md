@@ -29,6 +29,7 @@ You can view the live website here:
 ---
 ## Project Structure
 SportStreak/
+
 │
 ├── index.html          
 ├── style.css           
