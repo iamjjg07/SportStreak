@@ -1,3 +1,42 @@
+/* ======================
+   CSS VARIABLES (Themes)
+   ====================== */
+:root {
+  /* Dark Mode (default) */
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --card-bg: rgba(30, 41, 59, 0.8);
+  --card-border: rgba(148, 163, 184, 0.12);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #38bdf8;
+  --accent-gradient: linear-gradient(90deg, #0ea5e9, #6366f1);
+  --streak-bg: rgba(15, 23, 42, 0.6);
+  --history-bg: rgba(15, 23, 42, 0.7);
+  --button-disabled: #334155;
+  --success: #4ade80;
+  --quote-bg: rgba(30, 41, 59, 0.7);
+}
+
+body.light-mode {
+  --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --card-bg: #ffffff;
+  --card-border: rgba(148, 163, 184, 0.25);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --accent: #0284c7;
+  --accent-gradient: linear-gradient(90deg, #0ea5e9, #6366f1);
+  --streak-bg: #f8fafc;
+  --history-bg: #f1f5f9;
+  --button-disabled: #cbd5e1;
+  --success: #16a34a;
+  --quote-bg: #ffffff;
+}
+
+/* ======================
+   BASE STYLES
+   ====================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +45,12 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  color: #f1f5f9;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
   min-height: 100vh;
   padding: 20px;
   line-height: 1.5;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -24,33 +64,60 @@ header {
   margin-bottom: 30px;
 }
 
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
 header h1 {
   font-size: 2.4rem;
   font-weight: 700;
   background: linear-gradient(90deg, #38bdf8, #818cf8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 6px;
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 1rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
 }
 
 /* Quote Section */
 .quote-section {
-  background: rgba(30, 41, 59, 0.7);
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  background: var(--quote-bg);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 30px;
   text-align: center;
+  transition: background 0.3s ease;
 }
 
 .quote-label {
   font-size: 0.85rem;
-  color: #64748b;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 10px;
@@ -59,7 +126,7 @@ header h1 {
 .quote-text {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #e2e8f0;
+  color: var(--text-primary);
   font-style: italic;
   line-height: 1.6;
 }
@@ -73,8 +140,8 @@ header h1 {
 }
 
 .sport-card {
-  background: rgba(30, 41, 59, 0.8);
-  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 24px 16px;
   text-align: center;
@@ -84,8 +151,7 @@ header h1 {
 
 .sport-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.4);
-  background: rgba(30, 41, 59, 1);
+  border-color: var(--accent);
 }
 
 .sport-card .emoji {
@@ -98,22 +164,23 @@ header h1 {
   font-size: 1.05rem;
   font-weight: 600;
   margin-bottom: 8px;
+  color: var(--text-primary);
 }
 
 .sport-card .mini-streak {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
 }
 
 .sport-card .mini-streak span {
-  color: #38bdf8;
+  color: var(--accent);
   font-weight: 600;
 }
 
 /* Details Section */
 .details-section {
-  background: rgba(30, 41, 59, 0.8);
-  border: 1px solid rgba(148, 163, 184, 0.12);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   padding: 28px 24px;
   animation: fadeIn 0.3s ease;
@@ -127,7 +194,7 @@ header h1 {
 .back-btn {
   background: transparent;
   border: none;
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.95rem;
   cursor: pointer;
   margin-bottom: 20px;
@@ -135,7 +202,7 @@ header h1 {
 }
 
 .back-btn:hover {
-  color: #e2e8f0;
+  color: var(--text-primary);
 }
 
 .sport-header {
@@ -152,12 +219,13 @@ header h1 {
 .sport-header h2 {
   font-size: 1.6rem;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 /* Streak Box */
 .streak-box {
   text-align: center;
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--streak-bg);
   border-radius: 16px;
   padding: 24px;
   margin-bottom: 24px;
@@ -165,27 +233,27 @@ header h1 {
 
 .streak-label {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
   margin-bottom: 6px;
 }
 
 .streak-number {
   font-size: 3.5rem;
   font-weight: 700;
-  color: #38bdf8;
+  color: var(--accent);
   line-height: 1;
 }
 
 .streak-days {
   font-size: 0.95rem;
-  color: #64748b;
+  color: var(--text-muted);
   margin-top: 4px;
 }
 
 /* Action Button */
 .action-btn {
   width: 100%;
-  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+  background: var(--accent-gradient);
   color: white;
   border: none;
   border-radius: 12px;
@@ -203,7 +271,7 @@ header h1 {
 }
 
 .action-btn:disabled {
-  background: #334155;
+  background: var(--button-disabled);
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
@@ -212,7 +280,7 @@ header h1 {
 .status-message {
   text-align: center;
   font-size: 0.95rem;
-  color: #4ade80;
+  color: var(--success);
   min-height: 24px;
   margin-bottom: 20px;
 }
@@ -220,7 +288,7 @@ header h1 {
 /* History */
 .history-section h3 {
   font-size: 1rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
   margin-bottom: 12px;
 }
 
@@ -232,16 +300,16 @@ header h1 {
 }
 
 .history-list li {
-  background: rgba(15, 23, 42, 0.7);
+  background: var(--history-bg);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
 }
 
 .history-list li.today {
   background: rgba(56, 189, 248, 0.2);
-  color: #38bdf8;
+  color: var(--accent);
 }
 
 /* Responsive */
@@ -257,4 +325,4 @@ header h1 {
   .streak-number {
     font-size: 3rem;
   }
-}
+  }
