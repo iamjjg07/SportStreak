@@ -35,10 +35,36 @@ const quotes = [
 ];
 
 // ======================
+// THEME FUNCTIONS
+// ======================
+function loadTheme() {
+  const savedTheme = localStorage.getItem("sportstreak-theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    document.getElementById("theme-icon").textContent = "☀️";
+  } else {
+    document.body.classList.remove("light-mode");
+    document.getElementById("theme-icon").textContent = "🌙";
+  }
+}
+
+function toggleTheme() {
+  document.body.classList.toggle("light-mode");
+  
+  if (document.body.classList.contains("light-mode")) {
+    localStorage.setItem("sportstreak-theme", "light");
+    document.getElementById("theme-icon").textContent = "☀️";
+  } else {
+    localStorage.setItem("sportstreak-theme", "dark");
+    document.getElementById("theme-icon").textContent = "🌙";
+  }
+}
+
+// ======================
 // HELPER FUNCTIONS
 // ======================
 function getToday() {
-  return new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+  return new Date().toISOString().split("T")[0];
 }
 
 function getYesterday() {
@@ -49,7 +75,6 @@ function getYesterday() {
 
 function getDailyQuote() {
   const today = getToday();
-  // Simple way to pick a quote based on the date
   const dayNumber = parseInt(today.replace(/-/g, ""), 10);
   const index = dayNumber % quotes.length;
   return quotes[index];
@@ -107,11 +132,9 @@ function openSport(sportId) {
   const data = getSportData(sportId);
   const today = getToday();
 
-  // Hide grid, show details
   document.getElementById("sports-grid").style.display = "none";
   document.getElementById("details-section").style.display = "block";
 
-  // Fill details
   document.getElementById("detail-emoji").textContent = sport.emoji;
   document.getElementById("detail-name").textContent = sport.name;
   document.getElementById("streak-number").textContent = data.streak;
@@ -129,10 +152,10 @@ function openSport(sportId) {
     statusMsg.textContent = "";
   }
 
-  // History
   const historyList = document.getElementById("history-list");
   historyList.innerHTML = "";
-  const recent = data.history.slice(-14).reverse(); // last 14 days
+  const recent = data.history.slice(-14).reverse();
+  
   if (recent.length === 0) {
     historyList.innerHTML = "<li>No activity yet</li>";
   } else {
@@ -144,7 +167,6 @@ function openSport(sportId) {
     });
   }
 
-  // Button click
   doneBtn.onclick = () => markAsDone(sportId);
 }
 
@@ -154,9 +176,8 @@ function markAsDone(sportId) {
   const today = getToday();
   const yesterday = getYesterday();
 
-  if (data.lastCompleted === today) return; // already done
+  if (data.lastCompleted === today) return;
 
-  // Update streak
   if (data.lastCompleted === yesterday) {
     data.streak += 1;
   } else {
@@ -165,12 +186,10 @@ function markAsDone(sportId) {
 
   data.lastCompleted = today;
 
-  // Add to history (avoid duplicates)
   if (!data.history.includes(today)) {
     data.history.push(today);
   }
 
-  // Keep only last 60 days
   if (data.history.length > 60) {
     data.history = data.history.slice(-60);
   }
@@ -178,9 +197,8 @@ function markAsDone(sportId) {
   allData[sportId] = data;
   saveData(allData);
 
-  // Refresh the view
   openSport(sportId);
-  renderSportsGrid(); // update mini streaks on cards
+  renderSportsGrid();
 }
 
 // ======================
@@ -191,8 +209,11 @@ document.getElementById("back-btn").addEventListener("click", () => {
   document.getElementById("sports-grid").style.display = "grid";
 });
 
+document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+
 // ======================
 // START THE APP
 // ======================
+loadTheme();
 renderQuote();
 renderSportsGrid();
