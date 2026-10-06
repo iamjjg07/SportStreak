@@ -30,10 +30,10 @@ You can view the live website here:
 ## Project Structure
 SportStreak/
 │
-├── index.html          → Main page (structure of the website)
-├── style.css           → All the design and styling (colors, layout, buttons)
-├── script.js           → All the logic (streaks, quotes, saving data)
-└── README.md           → Project description and instructions
+├── index.html          
+├── style.css           
+├── script.js           
+└── README.md          
 
 ## How to Use
 
