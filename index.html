@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportStreak – Track. Plan. Improve.</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <!-- HERO HEADER -->
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-top">
+        <h1>SportStreak</h1>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle theme">
+          <span class="material-icons" id="theme-icon">dark_mode</span>
+        </button>
+      </div>
+      <p class="hero-subtitle">Track your sports. Build streaks. Stay consistent.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+      <button class="nav-btn active" data-page="tracker">Tracker</button>
+      <button class="nav-btn" data-page="schedule">Schedule</button>
+    </nav>
+
+    <!-- ==================== TRACKER PAGE ==================== -->
+    <div id="page-tracker">
+      <!-- Daily Quote -->
+      <section class="quote-section">
+        <p class="quote-label">Today’s Motivation</p>
+        <p id="daily-quote" class="quote-text">Loading...</p>
+      </section>
+
+      <!-- Today's Plan -->
+      <section class="today-plan" id="today-plan-section">
+        <h2><span class="material-icons">today</span> Today’s Plan</h2>
+        <div id="today-plan-list" class="today-plan-list"></div>
+      </section>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs" id="category-tabs">
+        <button class="cat-btn active" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="track">Track</button>
+        <button class="cat-btn" data-cat="team">Team</button>
+        <button class="cat-btn" data-cat="racket">Racket</button>
+        <button class="cat-btn" data-cat="gym">Gym</button>
+        <button class="cat-btn" data-cat="water">Water</button>
+      </div>
+
+      <!-- Sports Grid -->
+      <section class="sports-grid" id="sports-grid"></section>
+
+      <!-- Sport Detail -->
+      <section class="details-section" id="details-section" style="display:none;">
+        <button class="back-btn" id="back-btn">
+          <span class="material-icons">arrow_back</span> Back
+        </button>
+
+        <div class="sport-header">
+          <span class="material-icons sport-icon" id="detail-icon"></span>
+          <h2 id="detail-name"></h2>
+        </div>
+
+        <div class="streak-box">
+          <p class="streak-label">Current Streak</p>
+          <p class="streak-number" id="streak-number">0</p>
+          <p class="streak-days">days</p>
+        </div>
+
+        <!-- Timer -->
+        <div class="timer-box">
+          <p class="timer-display" id="timer-display">00:00</p>
+          <div class="timer-controls">
+            <button id="timer-start" class="timer-btn">Start</button>
+            <button id="timer-pause" class="timer-btn">Pause</button>
+            <button id="timer-reset" class="timer-btn">Reset</button>
+          </div>
+        </div>
+
+        <button class="action-btn" id="done-btn">I did it today!</button>
+        <p class="status-message" id="status-message"></p>
+
+        <div class="history-section">
+          <h3>Recent History</h3>
+          <ul id="history-list" class="history-list"></ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== SCHEDULE PAGE ==================== -->
+    <div id="page-schedule" style="display:none;">
+      <section class="schedule-section">
+        <div class="schedule-header">
+          <h2>Weekly Schedule</h2>
+          <p>Plan which sports you want to do each day</p>
+        </div>
+
+        <div id="weekly-schedule" class="weekly-schedule"></div>
+
+        <div class="schedule-actions">
+          <button id="save-schedule-btn" class="action-btn">Save Schedule</button>
+          <button id="download-ics-btn" class="action-btn secondary-btn">
+            <span class="material-icons">event</span> Add to Google Calendar
+          </button>
+        </div>
+        <p class="ics-help">
+          Download the file → Open Google Calendar → Settings → Import & export → Import
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
