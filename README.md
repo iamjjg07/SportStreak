@@ -27,14 +27,14 @@ You can view the live website here:
 > Replace `yourusername` with your actual GitHub username.
 
 ---
-## Project Structure 
-'''bash 
+## Project Structure
 SportStreak/
 │
 ├── index.html          → Main page (structure of the website)
 ├── style.css           → All the design and styling (colors, layout, buttons)
 ├── script.js           → All the logic (streaks, quotes, saving data)
 └── README.md           → Project description and instructions
+
 ## How to Use
 
 1. Open the website
