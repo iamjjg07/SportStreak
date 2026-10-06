@@ -31,7 +31,7 @@ Track your daily activity, build streaks, plan your week, and export to Google C
 ## Live Demo
 
 After uploading to GitHub Pages:  
-`https://yourusername.github.io/SportStreak`
+`https://iamjjg07.github.io/SportStreak`
 
 ---
 
@@ -76,8 +76,6 @@ SportStreak/
 - Google Material Icons
 - LocalStorage
 - Unsplash image (hero)
-
-No frameworks. Perfect for beginners learning GitHub + web development.
 
 ---
 
