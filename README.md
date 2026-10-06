@@ -55,12 +55,7 @@ Your progress is automatically saved in your browser.
 - LocalStorage (for saving data)
 - Google Fonts (Inter)
 
-No frameworks. Perfect for beginners.
 
 ---
 
-## How to Run Locally
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/SportStreak.git
