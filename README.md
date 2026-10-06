@@ -28,14 +28,12 @@ You can view the live website here:
 
 ---
 
-## Project Structure
 SportStreak/
-├── index.html      # Main HTML structure
-├── style.css       # All styling and design
-├── script.js       # App logic (streaks, quotes, data saving)
-└── README.md       # Project documentation
----
-
+│
+├── index.html          → Main page (structure of the website)
+├── style.css           → All the design and styling (colors, layout, buttons)
+├── script.js           → All the logic (streaks, quotes, saving data)
+└── README.md           → Project description and instructions
 ## How to Use
 
 1. Open the website
