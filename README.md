@@ -27,7 +27,8 @@ You can view the live website here:
 > Replace `yourusername` with your actual GitHub username.
 
 ---
-
+## Project Structure 
+'''bash 
 SportStreak/
 │
 ├── index.html          → Main page (structure of the website)
