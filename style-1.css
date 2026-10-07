@@ -1,0 +1,268 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --border: rgba(148,163,184,0.15);
+  --text: #f1f5f9;
+  --text2: #94a3b8;
+  --accent: #38bdf8;
+  --accent2: #6366f1;
+  --success: #4ade80;
+}
+body.light-mode {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --border: rgba(148,163,184,0.3);
+  --text: #0f172a;
+  --text2: #475569;
+  --accent: #0284c7;
+  --success: #16a34a;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: 0.3s;
+}
+.hero {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.hero-slides { position: absolute; inset: 0; }
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(15,23,42,0.25), rgba(15,23,42,0.88));
+}
+.hero-content {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+.hero-top { display: flex; justify-content: space-between; align-items: center; }
+.hero h1 { font-size: 2.2rem; font-weight: 800; color: white; }
+.hero-sport { color: #7dd3fc; font-weight: 600; margin-top: 2px; }
+.hero-subtitle { color: #cbd5e1; margin-top: 6px; }
+.theme-toggle {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+}
+.container { max-width: 860px; margin: 0 auto; padding: 20px; }
+.main-nav {
+  display: flex;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  gap: 4px;
+}
+.nav-btn {
+  flex: 1;
+  padding: 12px 6px;
+  border: none;
+  background: transparent;
+  color: var(--text2);
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.nav-btn.active { background: var(--accent); color: white; }
+.quote-section, .today-plan, .calendar-section, .details-section, .schedule-section, .panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.quote-section { text-align: center; }
+.quote-label {
+  font-size: 0.8rem;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.quote-text { font-size: 1.15rem; font-style: italic; font-weight: 500; }
+.today-plan h2, .section-head h2, .panel h2, .schedule-header h2 {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.today-plan-list, .history-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.today-plan-item, .history-list li {
+  background: rgba(56,189,248,0.15);
+  color: var(--accent);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  list-style: none;
+}
+.category-tabs { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 16px; }
+.cat-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text2);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.cat-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+.sports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; margin-bottom: 20px; }
+.sport-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.sport-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.sport-card .material-icons { font-size: 2.2rem; color: var(--accent); margin-bottom: 10px; }
+.sport-card .streak span { color: var(--accent); font-weight: 700; font-size: 1.1rem; }
+.section-head, .cal-nav { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.icon-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+}
+.cal-legend { color: var(--text2); font-size: 0.85rem; margin: 8px 0 12px; }
+.tick { color: #22c55e; font-weight: 700; }
+.miss { color: #ef4444; font-weight: 700; }
+.cal-weekdays, .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
+.cal-weekdays span { text-align: center; font-size: 0.75rem; color: var(--text2); }
+.cal-day {
+  min-height: 52px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.12);
+  text-align: center;
+  padding: 6px 2px;
+  font-size: 0.85rem;
+}
+.cal-day.empty { background: transparent; }
+.cal-day .mark { display: block; font-weight: 800; font-size: 1rem; }
+.cal-day.done .mark { color: #22c55e; }
+.cal-day.missed .mark { color: #ef4444; }
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.sport-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.sport-icon { font-size: 2.4rem !important; color: var(--accent); }
+.streak-box, .timer-box { text-align: center; margin-bottom: 16px; }
+.streak-number { font-size: 3.2rem; font-weight: 800; color: var(--accent); line-height: 1; }
+.streak-label, .streak-days, .hint, .ics-help { color: var(--text2); font-size: 0.9rem; }
+.timer-display { font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; }
+.timer-controls { display: flex; gap: 14px; justify-content: center; }
+.round-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 1.15rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+.round-btn.start { background: #16a34a; }
+.round-btn.pause { background: #334155; border: 3px solid #e2e8f0; }
+.round-btn.stop { background: #dc2626; }
+.action-btn, .small-btn, .danger-btn {
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.action-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  color: white;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+.secondary-btn {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.small-btn { padding: 10px 14px; background: var(--accent); color: white; }
+.danger-btn { padding: 12px 16px; background: #dc2626; color: white; }
+.status-message { text-align: center; color: var(--success); min-height: 24px; }
+.alarm-row, .code-row, .row-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 10px 0 16px; }
+input {
+  background: rgba(0,0,0,0.15);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 12px;
+  width: 100%;
+  margin: 6px 0 12px;
+}
+.day-row { background: rgba(0,0,0,0.12); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+.day-name { font-weight: 600; margin-bottom: 10px; }
+.sport-checkboxes { display: flex; flex-wrap: wrap; gap: 8px; }
+.sport-check {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--card);
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+.time-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 12px 0 18px; }
+.time-card { background: rgba(0,0,0,0.12); border-radius: 12px; padding: 12px; text-align: center; }
+.time-card strong { display: block; font-size: 1.4rem; color: var(--accent); }
+.friends-list { list-style: none; margin-top: 12px; }
+.friends-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 500px) {
+  .hero { height: 190px; }
+  .hero h1 { font-size: 1.8rem; }
+  .nav-btn { font-size: 0.8rem; }
+  .streak-number { font-size: 2.6rem; }
+}
