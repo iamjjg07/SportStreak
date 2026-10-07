@@ -47,7 +47,7 @@ SportStreak/
 
 After you turn on GitHub Pages:
 
-`https://iamjjg07.github.io/SportStreak`
+[https://iamjjg07.github.io/SportStreak]
 
 
 ## How to use the app
