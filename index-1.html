@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SportStreak – Track. Plan. Improve.</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-slides" id="hero-slides"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-top">
+        <div>
+          <h1>SportStreak</h1>
+          <p class="hero-sport" id="hero-sport">Running</p>
+        </div>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle theme" type="button">
+          <span class="material-icons" id="theme-icon">dark_mode</span>
+        </button>
+      </div>
+      <p class="hero-subtitle">Track your sports. Build streaks. Stay consistent.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <nav class="main-nav">
+      <button class="nav-btn active" data-page="tracker" type="button">Tracker</button>
+      <button class="nav-btn" data-page="schedule" type="button">Schedule</button>
+      <button class="nav-btn" data-page="records" type="button">Records</button>
+      <button class="nav-btn" data-page="friends" type="button">Friends</button>
+    </nav>
+
+    <div id="page-tracker">
+      <section class="quote-section">
+        <p class="quote-label" id="quote-label">Today’s Motivation</p>
+        <p id="daily-quote" class="quote-text">Loading...</p>
+      </section>
+
+      <section class="today-plan" id="today-plan-section">
+        <h2><span class="material-icons">today</span> Today’s Plan</h2>
+        <div id="today-plan-list" class="today-plan-list"></div>
+      </section>
+
+      <div class="category-tabs" id="category-tabs">
+        <button class="cat-btn active" data-cat="all" type="button">All</button>
+        <button class="cat-btn" data-cat="track" type="button">Track</button>
+        <button class="cat-btn" data-cat="team" type="button">Team</button>
+        <button class="cat-btn" data-cat="racket" type="button">Racket</button>
+        <button class="cat-btn" data-cat="gym" type="button">Gym</button>
+        <button class="cat-btn" data-cat="water" type="button">Water</button>
+      </div>
+
+      <section class="sports-grid" id="sports-grid"></section>
+
+      <section class="calendar-section" id="calendar-section">
+        <div class="section-head">
+          <h2>Activity Calendar</h2>
+          <div class="cal-nav">
+            <button id="cal-prev" type="button" class="icon-btn"><span class="material-icons">chevron_left</span></button>
+            <span id="cal-title">Month</span>
+            <button id="cal-next" type="button" class="icon-btn"><span class="material-icons">chevron_right</span></button>
+          </div>
+        </div>
+        <p class="cal-legend"><span class="tick">✓</span> done &nbsp; <span class="miss">✕</span> missed &nbsp; empty = future or today not yet done</p>
+        <div class="cal-weekdays">
+          <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+        </div>
+        <div id="calendar-grid" class="calendar-grid"></div>
+      </section>
+
+      <section class="details-section" id="details-section" style="display:none;">
+        <button class="back-btn" id="back-btn" type="button">
+          <span class="material-icons">arrow_back</span> Back
+        </button>
+        <div class="sport-header">
+          <span class="material-icons sport-icon" id="detail-icon"></span>
+          <h2 id="detail-name"></h2>
+        </div>
+        <div class="streak-box">
+          <p class="streak-label">Current Streak</p>
+          <p class="streak-number" id="streak-number">0</p>
+          <p class="streak-days">days</p>
+        </div>
+        <div class="timer-box">
+          <p class="timer-display" id="timer-display">00:00</p>
+          <div class="timer-controls">
+            <button id="timer-start" class="round-btn start" type="button" title="Start">▶</button>
+            <button id="timer-pause" class="round-btn pause" type="button" title="Pause">❚❚</button>
+            <button id="timer-stop" class="round-btn stop" type="button" title="Stop">■</button>
+          </div>
+        </div>
+        <button class="action-btn" id="done-btn" type="button">I did it today!</button>
+        <p class="status-message" id="status-message"></p>
+        <div class="history-section">
+          <h3>Recent History</h3>
+          <ul id="history-list" class="history-list"></ul>
+        </div>
+      </section>
+    </div>
+
+    <div id="page-schedule" style="display:none;">
+      <section class="schedule-section">
+        <div class="schedule-header">
+          <h2>Weekly Schedule</h2>
+          <p>Plan sports for each day, then set an alarm and open them in Google Calendar.</p>
+        </div>
+        <div class="alarm-row">
+          <label for="alarm-time">Alarm time</label>
+          <input id="alarm-time" type="time" value="06:00">
+          <button id="set-alarm-btn" class="small-btn" type="button">Set alarm</button>
+        </div>
+        <p id="alarm-status" class="hint"></p>
+        <div id="weekly-schedule" class="weekly-schedule"></div>
+        <div class="schedule-actions">
+          <button id="save-schedule-btn" class="action-btn" type="button">Save Schedule</button>
+          <button id="google-cal-btn" class="action-btn secondary-btn" type="button">
+            <span class="material-icons">event</span> Open in Google Calendar
+          </button>
+        </div>
+        <p class="ics-help">This opens Google Calendar for each planned day so you can save the events. A fully automatic sync needs a Google login server, which GitHub Pages cannot host.</p>
+        <p class="status-message" id="save-status"></p>
+      </section>
+    </div>
+
+    <div id="page-records" style="display:none;">
+      <section class="panel">
+        <h2>Time on SportStreak</h2>
+        <p class="hint">Counted while this page is open.</p>
+        <div class="time-grid" id="time-grid"></div>
+        <div class="row-actions">
+          <button id="reset-btn" class="danger-btn" type="button">Reset all records</button>
+          <button id="restore-btn" class="small-btn" type="button">Restore previous records</button>
+        </div>
+        <p id="records-status" class="status-message"></p>
+      </section>
+    </div>
+
+    <div id="page-friends" style="display:none;">
+      <section class="panel">
+        <h2>Friends</h2>
+        <p class="hint">Share your code on WhatsApp, Instagram, X, or anywhere. Friends paste it here. This stays on this device only — a live social network needs a server.</p>
+        <label>Your share code</label>
+        <div class="code-row">
+          <input id="my-code" readonly>
+          <button id="copy-code" class="small-btn" type="button">Copy</button>
+        </div>
+        <label for="friend-name">Friend name</label>
+        <input id="friend-name" placeholder="Name">
+        <label for="friend-code">Friend code</label>
+        <input id="friend-code" placeholder="Paste their code">
+        <button id="add-friend" class="action-btn" type="button">Add friend</button>
+        <ul id="friends-list" class="friends-list"></ul>
+      </section>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
