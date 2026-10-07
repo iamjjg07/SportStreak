@@ -47,9 +47,8 @@ SportStreak/
 
 After you turn on GitHub Pages:
 
-`https://yourusername.github.io/SportStreak`
+`https://iamjjg07.github.io/SportStreak`
 
-Replace `yourusername` with your GitHub username.
 
 ## How to use the app
 
