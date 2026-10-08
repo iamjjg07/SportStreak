@@ -45,9 +45,9 @@ SportStreak/
 
 ## Live demo
 
-**[Open SportStreak](https://iamjjgo7.github.io/SportStreak)**
+**[Open SportStreak]
+[https://iamjjg07.github.io/SportStreak/]
 
-Direct link: `https://iamjjgo7.github.io/SportStreak`
 
 ## How to use the app
 
@@ -56,8 +56,7 @@ Direct link: `https://iamjjgo7.github.io/SportStreak`
 3. Open the calendar to see done days and missed days.
 4. Go to **Schedule**, plan the week, then save.
 5. Set an alarm time for planned sports.
-6. Click **Open in Google Calendar** and save each event.
-7. Open **Records** to see time spent, or reset and restore.
+6. Click **Open in Google Calendar** and save each evesee time spent, or reset and restore.
 8. Open **Friends**, copy your code, and share it in any chat app.
 
 ## Deploy on GitHub Pages
