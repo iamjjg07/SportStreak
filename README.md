@@ -136,6 +136,6 @@ GitHub Pages is static. It cannot log into Google for you or host a live social 
 
 Created by [iamjjg07](https://github.com/iamjjg07)
 
-Beginner project for practicing HTML, CSS, JavaScript, and GitHub.
+
 
 
